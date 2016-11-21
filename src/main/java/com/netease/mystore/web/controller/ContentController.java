@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -84,9 +85,9 @@ public class ContentController {
         product.setSummary(content.getAbst());
         product.setDetail(content.getText());
         product.setImage(content.getIcon());
-        product.setPrice(content.getPrice() / 100.0);
+        product.setPrice(new BigDecimal(content.getPrice() / 100.0).setScale(2,BigDecimal.ROUND_HALF_UP));
         if (content.getRecord() != null) {
-            product.setBuyPrice(content.getRecord().getPrice() / 100.0);
+            product.setBuyPrice(new BigDecimal(content.getRecord().getPrice() / 100.0).setScale(2,BigDecimal.ROUND_HALF_UP));
             product.setIsBuy(true);
             product.setIsSell(true);
         } else {
@@ -160,9 +161,10 @@ public class ContentController {
             }
 
             // 价格验证
-            if (product.getPrice() < 0) {
+            if (product.getPrice().doubleValue() < 0) {
                 return;
             }
+
 
             // 封装数据
             Content content = new Content();
@@ -171,7 +173,7 @@ public class ContentController {
             content.setAbst(product.getSummary());
             content.setText(product.getDetail());
             content.setIcon(product.getImage());
-            content.setPrice(new Double(product.getPrice() * 100).longValue());
+            content.setPrice((product.getPrice().multiply(new BigDecimal(100))).longValue());
             // 执行操作
             // 反射执行相应业务层方法
             Method method = ContentService.class.getMethod(methodName, Content.class);
