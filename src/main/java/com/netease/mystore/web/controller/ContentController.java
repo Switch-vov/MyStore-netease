@@ -263,7 +263,7 @@ public class ContentController {
 
         // 数据库中删除
         Integer res = contentService.deleteById(id);
-        // 删除失败
+        // 删除失败 qw
         if (res == 0) {
             // 设置异常状态码
             JSONResult.setStatusCode(result, JSONResult.ERROR_CODE, "删除失败", JSONResult.ERROR_RESULT);
