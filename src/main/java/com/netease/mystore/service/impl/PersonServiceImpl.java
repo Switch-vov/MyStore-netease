@@ -8,6 +8,7 @@ import com.netease.mystore.service.PersonService;
 import com.netease.mystore.web.common.Product;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class PersonServiceImpl implements PersonService {
             product.setId(content.getId());
             product.setTitle(content.getTitle());
             product.setImage(content.getIcon());
-            product.setBuyPrice(content.getRecord().getPrice() / 100.0);
+            product.setBuyPrice(new BigDecimal(content.getRecord().getPrice() / 100.0).setScale(2,BigDecimal.ROUND_HALF_UP));
             product.setBuyTime(content.getRecord().getTime());
             products.add(product);
         }

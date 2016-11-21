@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +75,6 @@ public class IndexController {
         product.setId(content.getId());
         product.setTitle(content.getTitle());
         product.setImage(content.getIcon());
-        product.setPrice(content.getPrice() / 100.0);
+        product.setPrice(new BigDecimal(content.getPrice() / 100.0).setScale(2,BigDecimal.ROUND_HALF_UP));
     }
-
 }

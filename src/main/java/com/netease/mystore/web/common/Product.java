@@ -1,6 +1,7 @@
 package com.netease.mystore.web.common;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * 产品展示类
@@ -30,11 +31,11 @@ public class Product implements Serializable {
     /**
      * 价格
      */
-    private Double price;
+    private BigDecimal price;
     /**
      * 购买时价格
      */
-    private Double buyPrice;
+    private BigDecimal buyPrice;
     /**
      * 购买时间
      */
@@ -76,11 +77,11 @@ public class Product implements Serializable {
         this.detail = detail;
     }
 
-    public Double getBuyPrice() {
+    public BigDecimal getBuyPrice() {
         return buyPrice;
     }
 
-    public void setBuyPrice(Double buyPrice) {
+    public void setBuyPrice(BigDecimal buyPrice) {
         this.buyPrice = buyPrice;
     }
 
@@ -108,11 +109,11 @@ public class Product implements Serializable {
         this.image = image;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
