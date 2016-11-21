@@ -1,3 +1,8 @@
+# 数据库
+```
+create database MyStore character set utf8;
+use MyStore;
+```
 
 # 数据库表结构
 
