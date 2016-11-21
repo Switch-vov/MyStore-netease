@@ -42,11 +42,12 @@ ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 # 表内容
 ## 用户数据
-buyer为买家，密码为MD5加密的reyub
+0编号（buyer）为买家密码为MD5加密的reyub,
 
-seller为卖家，密码为MD5加密的relles
+1编号（seller）为卖家，密码为MD5加密的relles
 ```
 insert into `person` (`id`, `userName`, `password`, `nickName`, `userType`) values('0','buyer','37254660e226ea65ce6f1efd54233424','buyer','0');
+update person set id = 0 where userName = "buyer";
 insert into `person` (`id`, `userName`, `password`, `nickName`, `userType`) values('1','seller','981c57a5cfb0f868e064904b8745766f','seller','1');
 ```
 
