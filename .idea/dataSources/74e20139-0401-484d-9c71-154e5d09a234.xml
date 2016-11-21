@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - MyStore@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="MyStore">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="cloud_study"/>
+    <schema id="3" name="db_blog"/>
+    <schema id="4" name="employees"/>
+    <schema id="5" name="information_schema"/>
+    <schema id="6" name="mysql"/>
+    <schema id="7" name="performance_schema"/>
+    <schema id="8" name="sakila"/>
+    <schema id="9" name="test"/>
+    <table id="10" parent="1" name="person"/>
+    <table id="11" parent="1" name="content"/>
+    <table id="12" parent="1" name="trx"/>
+    <column id="13" parent="10" name="id">
+      <comment>主键</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="14" parent="10" name="userName">
+      <comment>用户名</comment>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="15" parent="10" name="password">
+      <comment>密码md5加密</comment>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="16" parent="10" name="nickName">
+      <comment>用户昵称</comment>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="17" parent="10" name="userType">
+      <comment>类型，买家0，卖家1</comment>
+      <data-type>tinyint(3)|0</data-type>
+    </column>
+    <key id="18" parent="10" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="19" parent="11" name="id">
+      <comment>主键</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="20" parent="11" name="price">
+      <comment>当前价格</comment>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <column id="21" parent="11" name="title">
+      <comment>标题</comment>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="22" parent="11" name="icon">
+      <comment>图片</comment>
+      <data-type>mediumtext|0</data-type>
+    </column>
+    <column id="23" parent="11" name="abstract">
+      <comment>摘要</comment>
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="24" parent="11" name="text">
+      <comment>正文</comment>
+      <data-type>mediumtext|0</data-type>
+    </column>
+    <key id="25" parent="11" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="26" parent="12" name="id">
+      <comment>主键</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="27" parent="12" name="contentId">
+      <comment>内容ID</comment>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="28" parent="12" name="personId">
+      <comment>用户ID</comment>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="29" parent="12" name="price">
+      <comment>购买价格</comment>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="30" parent="12" name="time">
+      <comment>购买时间</comment>
+      <data-type>bigint(20)|0</data-type>
+    </column>
+    <key id="31" parent="12" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>
